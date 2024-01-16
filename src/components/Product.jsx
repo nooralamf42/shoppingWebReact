@@ -3,8 +3,10 @@ import { toUpperCase } from "./Categories";
 import useProduct from '../contexts/Products';
 
 function Product({product}) {
+    let {updateTotalAmount} = useProduct()
     const {cartItems, addCartItems} = useProduct()
     const clickHandler = (clickedItem) =>{
+        updateTotalAmount(clickedItem.price,1)
         addCartItems({...clickedItem, quantity:1})
     }
     let isItemInCart = cartItems.some(item=>item.name==product.name)
@@ -23,7 +25,7 @@ function Product({product}) {
           </p>
           <p className="text-gray-700 text-base">{product.price}</p>
           </div>
-        <button onClick={()=> clickHandler(product)} className="bg-green-400 px-4 py-2 rounded-md mt-2">
+        <button onClick={()=> clickHandler(product)} className="bg-green-400 px-4 py-2 rounded-md mt-2" disabled={isItemInCart}>
           {!isItemInCart? 'Add to Cart' : 'In Cart'}
         </button>
         </div>

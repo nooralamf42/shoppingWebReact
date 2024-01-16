@@ -9,7 +9,7 @@ function Products() {
     pro = pro?.filter((product) => product.category === category);
   } 
   return (
-    <div className="flex flex-wrap gap-5 items-center justify-center pt-20">
+    <div className="flex px-10 md:p-0 flex-wrap gap-5 items-center justify-center pt-24">
       {pro.map((product) => (
        <Product product={product} key={product?.id}/>
       ))}

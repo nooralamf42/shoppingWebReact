@@ -6,7 +6,12 @@ const ProductsContext = createContext({
     allCategories : [],
     category: 'all',
     cartItems : [],
-    addCartItems: (item)=>{}
+    addCartItems: (item)=>{},
+    updateCartItems: (item, id)=>{},
+    deleteCartItems: (id)=>{},
+    totalAmount : 0,
+    updateTotalAmount : (newAmount) =>{},
+    eraseCart : ()=>{}
 })
 
 export const ProductsContextProvider = ProductsContext.Provider
